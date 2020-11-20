@@ -1,0 +1,43 @@
+{% extends 'MainPage.html' %}
+
+{% block Loadcontent %}
+
+<h1> Registered Routines: </h1>
+
+<div class="row">
+
+{% for routine in routines %}
+   <!-- Routine Column Start -->
+
+
+  <a class="btn btn-primary" href=" {% url 'viewRoutine' %}" style="margin:1%">
+   {{routine.Name}}
+  </a>
+
+
+
+ <!-- Routine Column End -->
+
+
+  {% endfor %}
+
+</div> <!-- Profile Row 2 End -->
+
+
+
+{% endblock %}
+
+
+<!--    axios.post('/MainPage/viewRoutine', {-->
+<!--        firstName: 'Fred',-->
+<!--        lastName: 'Flintstone'-->
+<!--    })-->
+<!--    .then(function(response)-->
+<!--    {-->
+<!--        console.log(response);-->
+<!--    })-->
+<!--    .catch(function(error)-->
+<!--    {-->
+<!--        console.log(error);-->
+<!--    });-->
+

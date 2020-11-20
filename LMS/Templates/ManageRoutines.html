@@ -1,0 +1,43 @@
+{% extends 'MainPage.html' %}
+
+{% block ManageRoutinescontent %}
+
+<h1> Manage Routines: </h1>
+
+
+{% for routine in routines %}
+   <!-- Routine Column Start -->
+ <div class="col overflow-hidden">
+
+ <div class="card">
+  <div class="card-header">
+
+      <div class="row">
+
+          <div class="col-md-4"> {{routine.Name}} </div>
+          <div class="col-md-5">  </div>
+           <div class="col-md-1">
+              <button class="btn btn-info">View</button> </div>
+          <div class="col-md-1">
+              <button class="btn btn-info">Edit</button> </div>
+          <div class="col-md-1">
+              <button class="btn btn-danger">Delete</button> </div>
+
+      </div>
+
+
+  </div>
+</div>
+
+ </div> <!-- Routine Column End -->
+
+<br>
+
+  {% endfor %}
+
+</div> <!-- Profile Row 2 End -->
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends 'MainPage.html' %}
+
+{% block Routinescontent %}
+
+<h1> Routines Registration Page:</h1>
+
+<div class="row">
+    <div class="col">
+        Routine Name:  <input type="Routine Name">
+    </div>
+</div>
+
+<br>
+
+<!-- Recorded Video Module -->
+<div class="row">
+    <div class="col">
+        <input id="RecordedVideoChooser" name="RecordedVideoChooser" type="file" class="file"  data-browse-on-zoom-click="true"  accept=".mp4">
+        {% with "Camera Options"|add:'Hi' as opt %}
+        <a href="{% url 'RecordedVideo' opt %}" type="button" class="btn btn-primary" > Select Recorded Video</a>
+        {% endwith %}
+    </div>
+</div>
+
+<hr>
+
+<!-- Recorded Video Module -->
+
+<br>
+
+
+<!-- Live Video Module -->
+  <!-- Button to Open the Modal -->
+
+<h3> Input Video Mode:</h3>
+
+
+<button class="btn btn-primary" > Using Kinect</button>
+
+
+<button class="btn btn-primary"  > Using Embeded Camera</button>
+
+
+
+<!-- Live Video Module -->
+
+
+<!-- accept="file_extension|audio/*|video/*|image/*|media_type"-->
+
+<!--<input id="input-b1" name="input-b1" type="file" class="file"  data-browse-on-zoom-click="true"  accept=".mp4">-->
+<!--<br>-->
+
+<br><br>
+
+<!-- Images Module -->
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+    Images
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Select Mode</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+            <button class="btn btn-primary"> Select Image</button>
+            <button class="btn btn-primary"> Capture Image </button>
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+<!-- Images Module -->
+<br><br>
+<div class="row">
+
+    <div class="col-1"></div>
+    <div class="col-4" style="background-color: blue; height: 500px">IMage url</div>
+    <div class="col-1"></div>
+    <div class="col-5 " style="background-color: aqua; height: 500px">dvfgr</div>
+    <div class="col-1"></div>
+
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col">
+
+        <center>
+    <button class="btn btn-warning"> Retry </button>
+    <button class="btn btn-warning"> Back </button>
+    <button class="btn btn-warning"> Next </button>
+    <button class="btn btn-warning"> Save </button>
+</center>
+
+    </div>
+
+</div>
+
+
+
+       <script>
+            $('#RecordedVideoChooser').on('change',function(){
+                //get the file name
+                {% with fielName=fileName %}
+                var fileName = $(this).val();
+                {% endwith %}
+                console.log(fileName)
+                //replace the "Choose a file" label
+<!--                $(this).next('.custom-file-label').html(fileName);-->
+            })
+        </script>
+
+
+
+<!--<script>-->
+<!--    $('#input-b1').change(function () {-->
+<!--    console.log($('#input-b1').val());-->
+<!--});-->
+<!--</script>-->
+
+
+{% endblock %}

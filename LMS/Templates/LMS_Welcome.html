@@ -1,0 +1,96 @@
+{% extends 'Base.html' %}
+
+
+{% block content %}
+
+
+<!-- Containter Start -->
+<div class='container-fluid' >
+
+
+<!-- Project Title Start -->
+<div class="row">
+  <div class="col"> <h1> {{ProjectTitle}} </h1> </div>
+</div>
+  <!-- Project Title End -->
+
+
+  <!-- Project Description Start -->
+<div class="row">
+  <div class="col" > <blockquote> {{ProjectDescription}} </blockquote> </div>
+  <div class="col"> </div>
+</div>
+  <!-- Project Description End -->
+
+   <!-- Profile Row 1 Start -->
+<div class="row">
+
+{% for profile in Profiles %}
+   <!-- Profile Column Start -->
+ <div class="col">
+
+ <div class="card">
+  <div class="card-header">
+  {% load staticfiles %}
+  <center> <img src={% static profile.ImgUrl %} width='200px' height='200px' /> </center>
+  </div>
+  <div class="card-body">{{profile.Name}}</div>
+  <div class="card-footer">{{profile.Data}}</div>
+</div>
+
+ </div> <!-- Profile Column End -->
+
+  {% endfor %}
+
+</div> <!-- Profile Row 1 End -->
+
+    <br>
+
+   <!-- Profile Row 2 Start -->
+<div class="row">
+
+{% for profile in SupervisorProfile %}
+   <!-- Profile Column Start -->
+ <div class="col">
+
+ <div class="card">
+  <div class="card-header">
+  {% load staticfiles %}
+  <center> <img src={% static profile.ImgUrl %} width='200px' height='200px' /> </center>
+  </div>
+  <div class="card-body">{{profile.Name}}</div>
+  <div class="card-footer">{{profile.Data}}</div>
+</div>
+
+ </div> <!-- Profile Column End -->
+
+  {% endfor %}
+
+</div> <!-- Profile Row 2 End -->
+<br>
+
+<!-- Progress Bar Row start -->
+ <div class="row">
+  <div class="col">
+  <center>
+  <div class="progress" style='width:50%'>
+
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:70%"></div>
+
+  </div>
+   </center>
+  </div>
+</div> <!-- Progress Bar Row End -->
+
+    <br>
+<center>
+    <a href="{% url 'MainPage' %}">
+    <button class="btn btn-primary" onclick="">Proceed</button>
+        </a>
+</center>
+
+
+</div> <!-- Containter End -->
+
+
+{% endblock %}
